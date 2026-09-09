@@ -1,63 +1,64 @@
-[
-app
-]
-name = "GoDaddy Webhook App"
+name = "rts-testing-2"
 version = "0.0.1"
-url = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/launch"
+client_id = "d7dc876e-69db-4212-8650-5ca6831bd204"
+description = "Minimal app that accepts GoDaddy webhook payloads"
+url = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+proxy_url = "https://058ygwgqbh.preview.c4.test-airoapp.ai"
 
 authorization_scopes = [
-  # "stores:read",
-  # "orders:read",
-  # "orders:write",
-  # "products:read",
-  # "products:write",
-  # "customers:read",
+    "commerce.business:read",
+    "commerce.business:update",
+    "commerce.product:read",
+    "commerce.product:write",
+    "commerce.channel:read",
+    "commerce.customer:read",
+    "commerce.customer:create",
+    "commerce.customer:update",
+    "commerce.fulfillment:read",
+    "commerce.fulfillment:create",
+    "commerce.fulfillment:update",
+    "commerce.fulfillment-plan:read",
+    "commerce.metafield:read",
+    "commerce.metafield:create",
+    "commerce.metafield:update",
+    "commerce.metafield:delete",
+    "commerce.order:read",
+    "commerce.order:create",
+    "commerce.order:update",
+    "commerce.order:cancel",
+    "commerce.order:complete",
+    "commerce.order:archive",
+    "commerce.store:read",
+    "commerce.tax:read",
+    "commerce.tax:create",
+    "commerce.tax:write",
+    "commerce.tax:delete",
+    "commerce.transaction:read",
 ]
 
-[[
-webhooks
-]]
-event   = "apps.app-registry.app.enabled"
-destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+[subscriptions]
 
-[[
-webhooks
-]]
-event   = "apps.app-registry.app.disabled"
-destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+[[subscriptions.webhook]]
+name = "app-lifecycle"
+events = [
+    "apps.app-registry.app.enabled",
+    "apps.app-registry.app.disabled",
+]
+url = "/api/webhooks"
 
-[[
-webhooks
-]]
-event   = "orders.order.created"
-destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+[[subscriptions.webhook]]
+name = "order-events"
+events = [
+    "commerce.order.created",
+    "commerce.order.updated",
+    "commerce.order.canceled",
+]
+url = "/api/webhooks"
 
-[[
-webhooks
-]]
-event   = "orders.order.updated"
-destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
-
-[[
-webhooks
-]]
-event   = "orders.order.cancelled"
-destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
-
-[[
-webhooks
-]]
-event   = "products.product.created"
-destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
-
-[[
-webhooks
-]]
-event   = "products.product.updated"
-destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
-
-[[
-webhooks
-]]
-event   = "products.product.deleted"
-destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+[[subscriptions.webhook]]
+name = "catalog-events"
+events = [
+    "commerce.catalog.sku-group.created",
+    "commerce.catalog.sku-group.updated",
+]
+url = "/api/webhooks"
