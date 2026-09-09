@@ -1,0 +1,63 @@
+[
+app
+]
+name = "GoDaddy Webhook App"
+version = "0.0.1"
+url = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/launch"
+
+authorization_scopes = [
+  # "stores:read",
+  # "orders:read",
+  # "orders:write",
+  # "products:read",
+  # "products:write",
+  # "customers:read",
+]
+
+[[
+webhooks
+]]
+event   = "apps.app-registry.app.enabled"
+destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+
+[[
+webhooks
+]]
+event   = "apps.app-registry.app.disabled"
+destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+
+[[
+webhooks
+]]
+event   = "orders.order.created"
+destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+
+[[
+webhooks
+]]
+event   = "orders.order.updated"
+destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+
+[[
+webhooks
+]]
+event   = "orders.order.cancelled"
+destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+
+[[
+webhooks
+]]
+event   = "products.product.created"
+destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+
+[[
+webhooks
+]]
+event   = "products.product.updated"
+destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
+
+[[
+webhooks
+]]
+event   = "products.product.deleted"
+destination = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
