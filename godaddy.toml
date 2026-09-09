@@ -53,7 +53,7 @@ events = [
     "commerce.order.updated",
     "commerce.order.canceled",
 ]
-url = "/api/webhooks"
+url = "https://058ygwgqbh.preview.c4.test-airoapp.ai/api/webhooks"
 
 [[subscriptions.webhook]]
 name = "catalog-events"
